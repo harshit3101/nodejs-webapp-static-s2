@@ -2,6 +2,8 @@
 
 ### Concept used
 
+- session and login 
 - seperate routing modules
 - custom middleware use
 - serve static files in node js
+- connect with elastic search and find geo indexed data
