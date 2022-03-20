@@ -45,3 +45,24 @@ function processCurrentPosition(position){
 
 }
 
+
+async function deleteUser() {
+
+    const delteUserUrl = window.location.origin + '/utils/delete-user'
+
+    fetch(delteUserUrl)
+    .then(msg => {
+       
+        if(!msg?.err?.message){
+            alert(JSON.stringify(msg));
+            window.location = window.location.origin
+        }else{
+            alert(JSON.stringify(msg.err.message));
+        }
+    })
+    .catch(err => {
+        location.reload();
+    });
+
+    
+}

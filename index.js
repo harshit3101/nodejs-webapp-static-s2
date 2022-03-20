@@ -18,7 +18,6 @@ expressApp.get('/login', (req, res)=> {
 
 
 expressApp.post('/authenticate', passport.authenticate('local', { failureRedirect: '/' }),  function(req, res) {
-	console.log(req.user)
 	console.log('successfully logged in');
     res.redirect('/homepage');
 });
