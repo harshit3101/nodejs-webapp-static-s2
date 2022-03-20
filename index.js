@@ -4,6 +4,7 @@ const path = require('path');
 const s2Route = require('./routes/s2Route/s2Route.js');
 const homepage = require('./routes/homepage/homepage.js');
 const utilRoutes = require('./routes/utils/util.js');
+const registerRoutes = require('./routes/register/register.js');
 const passport = require('passport');
 const connectEnsureLogin = require('connect-ensure-login');
 
@@ -31,6 +32,7 @@ expressApp.use('/routeTest',routeTest);
 expressApp.use('/s2',s2Route);
 expressApp.use('/homepage',homepage);
 expressApp.use('/utils',utilRoutes);
+expressApp.use('/register',registerRoutes);
 
 
 expressApp.get('*', function(req, res) {
