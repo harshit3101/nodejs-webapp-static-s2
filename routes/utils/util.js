@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const queryString = require('../../services/geospatialQuery').queryString;
+const connectEnsureLogin = require('connect-ensure-login');
 
-router.post('/es/getNearestPoints', getNearestPointsHandler);
+router.post('/es/getNearestPoints', connectEnsureLogin.ensureLoggedIn(), getNearestPointsHandler);
 
 
 module.exports = router;

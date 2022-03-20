@@ -40,6 +40,7 @@ function processCurrentPosition(position){
     })
     .catch(err => {
         console.log(err);
+        location.reload(); 
     });
 
 }

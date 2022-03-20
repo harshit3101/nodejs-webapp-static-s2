@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const s2 = require('s2-geometry').S2;
-const queryString = require('../../services/geospatialQuery').queryString;
+const connectEnsureLogin = require('connect-ensure-login');
 
-router.post('/latLngToKey', latLngToKeyHandler);
+router.post('/latLngToKey', connectEnsureLogin.ensureLoggedIn(), latLngToKeyHandler);
 
 
 module.exports = router;

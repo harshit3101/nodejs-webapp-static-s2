@@ -5,8 +5,9 @@ const s2Route = require('./routes/s2Route/s2Route.js');
 const homepage = require('./routes/homepage/homepage.js');
 const utilRoutes = require('./routes/utils/util.js');
 const passport = require('passport');
+const connectEnsureLogin = require('connect-ensure-login');
 
-expressApp.get('/', (req, res)=> {
+expressApp.get('/login', (req, res)=> {
     if(req.isAuthenticated()){
         res.redirect('/homepage');
     }else{
@@ -15,15 +16,15 @@ expressApp.get('/', (req, res)=> {
 });
 
 
-expressApp.post('/login', passport.authenticate('local', { failureRedirect: '/' }),  function(req, res) {
+expressApp.post('/authenticate', passport.authenticate('local', { failureRedirect: '/' }),  function(req, res) {
 	console.log(req.user)
 	console.log('successfully logged in');
     res.redirect('/homepage');
 });
 
-expressApp.get('/logout', function(req, res) {
+expressApp.get('/logout', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/login');
 });
 
 expressApp.use('/routeTest',routeTest);
@@ -33,5 +34,5 @@ expressApp.use('/utils',utilRoutes);
 
 
 expressApp.get('*', function(req, res) {
-    res.redirect('/');
+    res.redirect('/login');
 });
