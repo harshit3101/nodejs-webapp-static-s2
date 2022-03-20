@@ -2,5 +2,6 @@
 
 ### Concept used
 
-seperate routing modules
-serve static files in node js
+- seperate routing modules
+- custom middleware use
+- serve static files in node js

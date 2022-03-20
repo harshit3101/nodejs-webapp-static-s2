@@ -25,18 +25,29 @@
         <div class="inner">
           <h3 class="masthead-brand">Cover</h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link active" href="/logout">Logout</a>
           </nav>
         </div>
       </header>
 
       <main role="main" class="inner cover">
         <h1 class="cover-heading">Find S2 id for your coordiantes</h1>
-        <p class="lead"></p>
+        <p class="lead" id="s2Response"></p>
         <p class="lead">
             <button type="button" class="btn btn-primary" onclick="callS2()">Call S2</button>
+        </p>
+      </main>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Find nearest points</h1>
+
+        <label for="radius" class="text-info">Radius:</label>
+        <input type="text" name="radius" id="radius" placeholder="Radius of area  ">
+        <br>
+        <p>example: 10 m, 10 km Default is 1m </p> 
+        <p class="lead" id="nearestPoints"></p>
+        <p class="lead">
+            <button type="button" class="btn btn-primary" onclick="getNearestPoints()">get Nearest Points</button>
         </p>
       </main>
 
@@ -56,5 +67,6 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/s2/s2.js"></script>
+    <script src="js/es/elasticSearch.js"></script>
   </body>
 </html>
